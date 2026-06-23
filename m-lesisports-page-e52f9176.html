@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>乐思体育 · 往日常，见新息</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f8f6f0;
+      font-family: "Georgia", "Noto Serif SC", "Songti SC", serif;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 0 24px;
+    }
+
+    .page-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    /* ——— hero 横幅 ——— */
+    .hero {
+      background: #ece8df;
+      padding: 48px 32px 40px;
+      border-radius: 8px;
+      margin-bottom: 48px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 32px;
+      bottom: -1px;
+      width: 60px;
+      height: 3px;
+      background: #b7a98a;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #2c2b28;
+      margin-bottom: 12px;
+    }
+
+    .hero .subnote {
+      font-size: 1rem;
+      color: #6b6257;
+      border-left: 2px solid #c5b9a3;
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    .hero .subnote em {
+      font-style: italic;
+      color: #4f4a42;
+    }
+
+    /* ——— 正文段落 ——— */
+    .section-block {
+      margin-bottom: 40px;
+    }
+
+    .section-block p {
+      margin-bottom: 1.2em;
+      font-size: 1rem;
+    }
+
+    .section-block .lead {
+      font-size: 1.08rem;
+      color: #3a3732;
+    }
+
+    .pull-quote {
+      background: #f0ede6;
+      border-left: 4px solid #b7a98a;
+      padding: 20px 24px;
+      margin: 28px 0 32px;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+      color: #3f3b35;
+    }
+
+    .pull-quote p {
+      margin-bottom: 0.4em;
+    }
+
+    .pull-quote .attr {
+      font-size: 0.88rem;
+      color: #7a7165;
+      margin-top: 6px;
+    }
+
+    /* ——— 引用框 / 提示卡 ——— */
+    .note-box {
+      background: #fffcf6;
+      border: 1px solid #d9d0c1;
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .note-box .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7a6f5f;
+      border-bottom: 1px solid #d1c5b3;
+      padding-bottom: 2px;
+      margin-bottom: 14px;
+    }
+
+    .note-box p {
+      margin-bottom: 0.6em;
+    }
+
+    .note-box ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+
+    .note-box li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .note-box li::before {
+      content: "—";
+      position: absolute;
+      left: 2px;
+      color: #9f9381;
+    }
+
+    /* ——— 双栏小场景（响应式） ——— */
+    .scene-grid {
+      display: flex;
+      gap: 28px;
+      margin: 36px 0 28px;
+    }
+
+    .scene-item {
+      flex: 1;
+      background: #f5f2eb;
+      padding: 20px 22px;
+      border-radius: 8px;
+      border: 1px solid #e2dcd1;
+    }
+
+    .scene-item h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #4d463c;
+      border-bottom: 1px dashed #cfc6b8;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .scene-item p {
+      font-size: 0.94rem;
+      margin-bottom: 0.8em;
+      color: #3d3932;
+    }
+
+    /* ——— FAQ 摘要（简洁） ——— */
+    .faq-mini {
+      background: #faf8f4;
+      padding: 24px 28px;
+      border-radius: 8px;
+      margin: 36px 0 40px;
+      border: 1px solid #e2dbcf;
+    }
+
+    .faq-mini .q {
+      font-weight: 500;
+      color: #3f3a33;
+    }
+
+    .faq-mini .a {
+      margin-left: 0;
+      padding-left: 18px;
+      border-left: 2px solid #d6ccbc;
+      color: #565049;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .faq-mini .a:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ——— 页尾 ——— */
+    .footer-note {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid #ddd6ca;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #5f5850;
+      line-height: 1.6;
+    }
+
+    .footer-note a {
+      color: #3a3a3a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b7a98a;
+      transition: color 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: #000;
+      text-decoration-color: #7c6f5c;
+    }
+
+    .footer-note .alt-link {
+      display: inline-block;
+      margin-top: 4px;
+      font-style: normal;
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 32px 0 56px;
+      }
+      .hero {
+        padding: 32px 20px 30px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .scene-grid {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .note-box, .faq-mini, .pull-quote {
+        padding: 18px 18px;
+      }
+      .footer-note {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 0 14px;
+      }
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 横幅 hero -->
+  <div class="hero">
+    <h1>日常的对照</h1>
+    <div class="subnote">
+      —— 翻阅、比较与延伸，有时比结论更靠近<em>理解</em>。
+    </div>
+  </div>
+
+  <!-- 背景说明 + 引入 -->
+  <div class="section-block">
+    <p class="lead">
+      体育资讯网站多如牛毛，但真正适合日常「查询与对照」的，并不算多。<strong>乐思体育</strong>
+      不属于那种每天推送几十条快讯的机械列表——它更像一个安静的档案间，把赛事数据、运动员履历和战术演变整理成可供检索的条目。
+    </p>
+    <p>
+      最早注意到这个站点，是因为一次偶然的跨联赛对比：想查某位球员在青年队时期的技术统计，辗转几个平台都只找到碎片，
+      却在那个字体偏小、版面克制的页面里看到了完整的赛季折线。那种感觉像是图书馆里突然抽对了书脊。
+    </p>
+  </div>
+
+  <!-- 引用块 / 叙述停顿 -->
+  <div class="pull-quote">
+    <p>「不是所有信息都该被包装成头条，有时一排历史数据比任何评论都更能说明问题。」</p>
+    <div class="attr">—— 一位习惯在赛前浏览旧账的爱好者</div>
+  </div>
+
+  <!-- 三段自然介绍（以场景与延伸为主） -->
+  <div class="scene-grid">
+    <div class="scene-item">
+      <h3>对照</h3>
+      <p>同时打开两场比赛的阵容表、跑动热区，横向拖拽年份滑块——这样的操作在大多数移动端几乎不可能。
+        而在<strong>乐思体育</strong>的页面结构里，对照被默认为一种阅读方式，而非附加功能。</p>
+    </div>
+    <div class="scene-item">
+      <h3>档案</h3>
+      <p>几年前的一轮杯赛，某支低级别球队的黑马之旅；某个雨天里改写纪录的三分钟……这些细节常被算法淹没。
+        但如果你习惯按赛季、按场地甚至按裁判去检索，那些被遗忘的赛点会重新浮现。</p>
+    </div>
+    <div class="scene-item">
+      <h3>延伸</h3>
+      <p>一次查询往往不是终点。看到某位教练二十年前的执教胜率，会忍不住去翻同一时期对手的阵容更迭；
+        从一条转会记录延展到青训体系变迁。这种阅读节奏，恰好是日常所需要的。</p>
+    </div>
+  </div>
+
+  <!-- 提示框 / 非功能罗列，而有叙述感 -->
+  <div class="note-box">
+    <div class="tag">翻阅建议</div>
+    <p>如果你也是那种更喜欢「先大致浏览、再沿着链接深入」的人，可以试试把 <a href="https://m-lesisports.com" style="color:#3a3a3a; text-decoration: underline; text-underline-offset: 3px;">乐思体育</a>
+      当作起点。不必带着明确的问题，先翻翻近几个赛季的统计页面，往往能发现意料之外的对照线索。</p>
+    <ul>
+      <li>用赛事年份筛选，比关键词搜索更容易发现脉络</li>
+      <li>同一球员在不同球队的数据变化，常藏着战术转型的痕迹</li>
+      <li>如果某个页面加载偏慢，不妨等一等——内容往往是完整的</li>
+    </ul>
+  </div>
+
+  <!-- FAQ 摘要（两个问题，简洁真实） -->
+  <div class="faq-mini">
+    <div class="q">Q：这个站的数据更新快吗？</div>
+    <div class="a">不算最快，但比较稳。常规联赛通常在赛后一天内补全数据，历史赛事的补充则更依赖整理节奏。如果你需要实时滚动，它可能不是首选；但如果你更看重查询的连贯性和档案深度，它很称手。</div>
+
+    <div class="q">Q：移动端浏览体验如何？</div>
+    <div class="a">页面没有做太多花哨的适配，但表格会自动折行，字号可调。稍微倾斜屏幕或者横屏查看表格会更舒服。对于日常随手查而言，够用。</div>
+  </div>
+
+  <!-- 页尾访问提示（自然嵌入链接） -->
+  <div class="footer-note">
+    <p>无论你是想回顾某个赛季的积分变化，还是单纯想找一个没有弹窗和自动播放视频的安静角落，
+    都值得在书签栏里给 <a href="https://m-lesisports.com">乐思体育</a> 留一个位置。</p>
+    <p class="alt-link">—— 它不承诺任何奇迹，只提供经过整理的记录，和一点延伸阅读的余地。</p>
+  </div>
+
+</div>
+</body>
+</html>
